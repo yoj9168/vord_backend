@@ -1,13 +1,14 @@
 package com.prometheus.vord.controller;
 
+import com.prometheus.vord.DTO.ResponseSingerDTO;
 import com.prometheus.vord.DTO.ResponseSongStyle;
 import com.prometheus.vord.common.ApiResponse;
+import com.prometheus.vord.service.GPTService;
 import com.prometheus.vord.service.MainService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +22,11 @@ public class MainController {
     @GetMapping("/song/list")
     public ApiResponse<List<ResponseSongStyle>> getSongStyleList() throws Exception{
         return mainService.getSongStyleList();
+    }
+    //가수 리스트 주기
+    @GetMapping("/singer/list")
+    public ApiResponse<List<ResponseSingerDTO>> getSingerInfo() throws Exception{
+        return mainService.getSingerInfo();
     }
 
 }
