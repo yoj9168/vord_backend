@@ -28,5 +28,9 @@ public class MainController {
     public ApiResponse<List<ResponseSingerDTO>> getSingerInfo() throws Exception{
         return mainService.getSingerInfo();
     }
+    @GetMapping("/test")
+    public String test(){
+        return "test";
+    }
 
 }
